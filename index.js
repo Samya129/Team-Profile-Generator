@@ -2,6 +2,10 @@
 const inquirer = require("inquirer");
 //fs needed? const fs = require("fs");
 //Need inquirer for each employee.js, engineer.js, intern.js etc
+const Engineer = require ("./lib/Engineer");
+const intern = require("./lib/Intern");
+const Manager = require("./lib/Manager");
+const employees = [];
 
 const generateHTML = (inquiryResponses) => {
 
