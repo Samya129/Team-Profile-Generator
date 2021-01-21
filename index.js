@@ -84,3 +84,24 @@ generalQuestions = [
         })
     }
     askQuestion();
+    
+    const addManager = ()=>{
+        inquirer
+      .prompt([
+          generalQuestions[0],
+          generalQuestions[1],
+          generalQuestions[2],
+          //Manager:
+          {
+            type: 'input',
+            name: 'officeNumber',
+            message: 'What is your working office number?',
+          },
+        ])
+        .then(response =>{
+            console.log(response)
+            askQuestion();
+        })
+        
+    }
+    
