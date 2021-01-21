@@ -55,3 +55,32 @@ generalQuestions = [
     //     return asyncWrite(filename, generateHTML(responses) )}
     // ) .then (()=>{ console.log("Success!")}).catch ((err)=>{console.log(err)}) ;
 
+    const askQuestion = () =>{
+        inquirer
+        .prompt([
+            {
+                type: "list",
+                message: "What would you like to do next?",
+                choices: ["Add Manager","Add Intern","Add Engineer", "Build team"],
+                name: "userChoice",
+    
+            }
+        ])
+        .then(response => {
+            switch (response.userChoice){
+                case "Add Manager": 
+                addManager();
+                break;
+                case "Add Intern": 
+                addIntern();
+                break;
+                case "Add Engineer": 
+                addEngineer();
+                break;
+                default: 
+                buildTeam();
+            }
+            //console.log(response.userChoice)
+        })
+    }
+    askQuestion();
