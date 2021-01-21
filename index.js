@@ -15,13 +15,33 @@ inquirer
       },
       {
         type: 'input',
+        name: 'email',
+        message: 'What is your e-mail address?',
+      },
+      //Start of role questions:
+      {
+        type: 'checkbox',
+        name: 'role',
+        message: 'What is your role?',
+        choices: ['Manager','Intern','Engineer']
+      },
+      //Manager:
+      {
+        type: 'input',
         name: 'officeNumber',
         message: 'What is your working office number?',
       },
+      //Engineer:
       {
         type: 'input',
-        name: 'email',
-        message: 'What is your e-mail address?',
+        name: 'gitHub',
+        message: 'What is your github username?',
+      },
+      //Intern
+      {
+        type: 'input',
+        name: 'school',
+        message: 'What school do you go to?',
       },
     ]).then((inquiryResponses) => {
         const filename = `${inquiryResponses.title}.`; //'README.md' or '${inquiryResponses.title}.md' to name the top of the readmefile tab. Note:Putting it as readme.md WILL replace current readme file that I created.
