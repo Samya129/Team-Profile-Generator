@@ -1,6 +1,11 @@
+//Sub Class of Employee
 const inquirer = require("inquirer");
+//fs needed? const fs = require("fs");
 //Need inquirer for each employee.js, engineer.js, intern.js etc
 
+const generateHTML = (inquiryResponses) => {
+
+}
 inquirer
   .prompt([
     {
@@ -37,13 +42,14 @@ inquirer
         name: 'gitHub',
         message: 'What is your github username?',
       },
-      //Intern
+      //Intern:
       {
         type: 'input',
         name: 'school',
         message: 'What school do you go to?',
       },
     ]).then((inquiryResponses) => {
-        const filename = `${inquiryResponses.title}.`; //'README.md' or '${inquiryResponses.title}.md' to name the top of the readmefile tab. Note:Putting it as readme.md WILL replace current readme file that I created.
+        const filename = `${inquiryResponses.title}.html`; //'README.md' or '${inquiryResponses.title}.md' to name the top of the readmefile tab. Note:Putting it as readme.md WILL replace current readme file that I created.
         return asyncWrite(filename, generateREADME(inquiryResponses) )}
     ) .then (()=>{ console.log("Success!")}).catch ((err)=>{console.log(err)}) ;
+
