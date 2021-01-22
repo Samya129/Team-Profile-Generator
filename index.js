@@ -83,7 +83,7 @@ generalQuestions = [
       },
     ])
     .then(response =>{
-        //console.log(response)
+        //console.log(response) //Returns the responses of the question and all the properties
         askQuestion();
     }) 
 }
