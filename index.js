@@ -32,7 +32,7 @@ generalQuestions = [
 //       generalQuestions[1],
 //       generalQuestions[2],
 //       generalQuestions[3],
-//       //Manager:
+//Manager:
 //       {
 //         type: 'input',
 //         name: 'officeNumber',
@@ -50,6 +50,7 @@ generalQuestions = [
 //         name: 'school',
 //         message: 'What school do you go to?',
 //       },
+
     // ]).then((responses) => {
     //     const filename = `${responses.title}.html`; //'README.md' or '${inquiryResponses.title}.md' to name the top of the readmefile tab. Note:Putting it as readme.md WILL replace current readme file that I created.
     //     return asyncWrite(filename, generateHTML(responses) )}
@@ -104,4 +105,43 @@ generalQuestions = [
         })
         
     }
+
+    const addIntern = ()=>{
+      inquirer
+    .prompt([
+        generalQuestions[0],
+        generalQuestions[1],
+        generalQuestions[2],
+        //Intern:
+        {
+        type: 'input',
+        name: 'school',
+        message: 'What school do you go to?',
+       },
+      ])
+      .then(response =>{
+          console.log(response)
+          askQuestion();
+      })
+      
+  }
+  const addEngineer = ()=>{
+    inquirer
+  .prompt([
+      generalQuestions[0],
+      generalQuestions[1],
+      generalQuestions[2],
+      //Engineer:
+      {
+        type: 'input',
+        name: 'gitHub',
+        message: 'What is your github username?',
+      },
+    ])
+    .then(response =>{
+        console.log(response)
+        askQuestion();
+    })
+    
+}
     
