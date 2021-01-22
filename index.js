@@ -1,12 +1,14 @@
-//Sub Class of Employee
 const inquirer = require("inquirer");
 const fs = require("fs");
 // const asyncWrite = util.promisify(fs.writeFile)
-const Engineer = require ("./lib/Engineer");
-const intern = require("./lib/Intern");
+const Intern = require("./lib/Intern");
 const Manager = require("./lib/Manager");
-
+const Engineer = require ("./lib/Engineer");
 const employees = [];
+
+const generateHTML = (response)=>{
+  ''
+}
 
 generalQuestions = [
   { 
@@ -31,11 +33,9 @@ generalQuestions = [
 //       generalQuestions[2],
 //      ])
 //     .then((response) => {
-//   //     console.log(response)
-//   // askQuestion(); 
 // },
 //         const filename = `${response.title}.html`; //'README.md' or '${inquiryResponse.title}.md' to name the top of the readmefile tab. Note:Putting it as readme.md WILL replace current readme file that I created.
-//         return asyncWrite(filename, generateHTML(respons) )}
+//         return asyncWrite(filename, generateHTML(response) )}
 //     ) .then (()=>{ console.log("Success!")}).catch ((err)=>{console.log(err)}) ;
 
     const askQuestion = () =>{
@@ -72,6 +72,10 @@ generalQuestions = [
   const addIntern = ()=>{
     inquirer
   .prompt([
+    //General questions to be asked first before sub-questions
+    generalQuestions[0],
+    generalQuestions[1],
+    generalQuestions[2],
       {
         name: 'school',
         type: 'input',
@@ -87,6 +91,9 @@ generalQuestions = [
   const addManager = ()=>{
     inquirer
   .prompt([
+    generalQuestions[0],
+    generalQuestions[1],
+    generalQuestions[2],
       {
         name: 'officeNumber',
         type: 'input',
@@ -102,6 +109,9 @@ generalQuestions = [
   const addEngineer = ()=>{
     inquirer
   .prompt([
+    generalQuestions[0],
+    generalQuestions[1],
+    generalQuestions[2],
       {
         name: 'gitHub',
         type: 'input',
