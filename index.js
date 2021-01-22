@@ -61,7 +61,7 @@ generalQuestions = [
         .prompt([
             {
                 type: "list",
-                message: "What would you like to do next?",
+                message: "What would you like to do?",
                 choices: ["Add Manager","Add Intern","Add Engineer", "Build team"],
                 name: "userChoice",
     
