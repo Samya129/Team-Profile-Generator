@@ -13,7 +13,7 @@ const buildTeam = ()=>{
   //console.log(members)
   members.map(function(member){
 let appendIntern = "";
-  // if (response === " Add Intern"||" Add Manager" || "Add Engineer"){
+  if (response === "Add Intern"){
     appendIntern = `<div class="row">
     <div class="col-6">
         <div class="card" style="width: 18rem;">
@@ -23,13 +23,13 @@ let appendIntern = "";
             <i class="fas fa-user-graduate"> Intern</i>
             </div>
             <ul class="list-group list-group-flush">
-            <li class="list-group-item id">ID:${member.id}</li>
             <li class="list-group-item email">Email: ${member.email}</li>
+            <li class="list-group-item id">ID:${member.id}</li>
             <li class="list-group-item school">School: ${member.school}</li>
             </ul>
         </div>
     </div>`
-
+  } else if("Add Manager"){
 let appendManager = "";
 appendManager = `<div class="row">
 <div class="col-3">
@@ -40,13 +40,13 @@ appendManager = `<div class="row">
       <i class="fas fa-mug-hot"> Manager</i>
     </div>
     <ul class="list-group list-group-flush">
+    <li class="list-group-item email">Email:${member.email}</li>
       <li class="list-group-item id">ID:${member.id}</li>
-      <li class="list-group-item email">Email:${member.email}</li>
       <li class="list-group-item officeNum">Office Number:${member.officeNumber}</li>
     </ul>
   </div>
 </div> `
-
+} else("Add Engineer"){
 let appendEngineer = "";
 appendEngineer = `<div class="col-3">
 <div class="card" style="width: 18rem;">
@@ -56,16 +56,16 @@ appendEngineer = `<div class="col-3">
       <i class="fas fa-glasses"> Engineer</i>
     </div>
     <ul class="list-group list-group-flush">
+    <li class="list-group-item email">Email:${member.email}</li>
       <li class="list-group-item id">ID:${member.id}</li>
-      <li class="list-group-item email">Email:${member.email}</li>
       <li class="list-group-item gitHub">Github:${member.gitHub}</li>
     </ul>
   </div>
 </div>`
+}
   }
   )
 }
-
 
 generalQuestions = [
   { 
