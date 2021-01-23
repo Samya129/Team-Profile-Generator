@@ -11,8 +11,11 @@ const members = [];
 // const generateHTML = (response)=>{}
 const buildTeam = ()=>{ 
   //console.log(members)
+  let appendIntern = "";
+  let appendManager = "";
+  let appendEngineer = "";
   members.map(function(member){
-let appendIntern = "";
+//let appendIntern = "";
   if (member.type === "Intern"){
     //console.log("hi!")
     appendIntern = `<div class="row">
@@ -33,7 +36,7 @@ let appendIntern = "";
   }
 
    else if(member.type ==="Manager"){
-let appendManager = "";
+// let appendManager = "";
 appendManager = `<div class="row">
 <div class="col-3">
 <div class="card" style="width: 18rem;">
@@ -50,7 +53,7 @@ appendManager = `<div class="row">
   </div>
 // </div> `
 } else {
-let appendEngineer = "";
+//let appendEngineer = "";
 appendEngineer = `<div class="col-3">
 <div class="card" style="width: 18rem;">
     <div class="card-body" style="background-color: rgb(106, 106, 221);">
