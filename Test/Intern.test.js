@@ -1,4 +1,29 @@
-const Employee = require("../lib/Employee.js");
 const Intern = require("../lib/Intern.js");
-const Manager = require("../lib/Manager.js");
-const Engineer = require("../lib/Engineer.js");
+
+describe('Intern Sub Class', () => {
+    describe('Confirmation of Intern Properties/School', () => {
+      // Positive test
+      it("This will confirm that a School was inputted", () => {
+        // Arrange
+        const schoolTest = 'NYU';
+  
+        // Act
+        const obj = new Intern("Foo",1, "InternTest@gmail.com", schoolTest );
+  
+        // Assert
+        expect(obj.text).toEqual(text);
+      });
+
+      // Exception test
+    it("should throw an error if not provided a 'text' value", () => {
+        // Arrange
+        const cb = () => new To();
+        const err = new Error(
+          "Expected parameter 'text' to be a non empty string"
+        );
+  
+        // Assert
+        expect(cb).toThrowError(err);
+      });
+    });
+  });
