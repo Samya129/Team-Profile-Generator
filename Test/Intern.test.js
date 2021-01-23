@@ -29,7 +29,7 @@ describe('Intern Sub Class', () => {
   });
 
 
-
+//Other options to use as pseudo code below:
 
 
   describe("Intern", () => {
