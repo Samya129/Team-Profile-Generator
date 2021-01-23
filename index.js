@@ -41,8 +41,8 @@ appendManager = `<div class="row">
     </div>
     <ul class="list-group list-group-flush">
       <li class="list-group-item id">ID:${member.id}</li>
-      <li class="list-group-item email">Email: ${member.email}</li>
-      <li class="list-group-item officeNum">Office Number: ${member.officeNumber}</li>
+      <li class="list-group-item email">Email:${member.email}</li>
+      <li class="list-group-item officeNum">Office Number:${member.officeNumber}</li>
     </ul>
   </div>
 </div> `
@@ -51,30 +51,20 @@ let appendEngineer = "";
 appendEngineer = `<div class="col-3">
 <div class="card" style="width: 18rem;">
     <div class="card-body" style="background-color: rgb(106, 106, 221);">
-      <h5 class="card-title">Jared</h5>
+      <h5 class="card-title">Name:${member.name}</h5>
       <h6 class="card-title"></h6>
       <i class="fas fa-glasses"> Engineer</i>
     </div>
     <ul class="list-group list-group-flush">
-      <li class="list-group-item id">ID:</li>
-      <li class="list-group-item email">Email:</li>
-      <li class="list-group-item officeNum">Office Number:</li>
+      <li class="list-group-item id">ID:${member.id}</li>
+      <li class="list-group-item email">Email:${member.email}</li>
+      <li class="list-group-item gitHub">Github:${member.gitHub}</li>
     </ul>
   </div>
 </div>`
-
-
-
-
   }
   )
 }
-
-
-
-
-
-
 
 
 generalQuestions = [
