@@ -13,7 +13,8 @@ const buildTeam = ()=>{
   //console.log(members)
   members.map(function(member){
 let appendIntern = "";
-  if (response === "Add Intern"){
+  if (member.type === "Intern"){
+    //console.log("hi!")
     appendIntern = `<div class="row">
     <div class="col-6">
         <div class="card" style="width: 18rem;">
@@ -30,44 +31,44 @@ let appendIntern = "";
         </div>
     </div>`
   }
-})} //testing curlies: Delete later
-//    else if("Add Manager"){
-// let appendManager = "";
-// appendManager = `<div class="row">
-// <div class="col-3">
-// <div class="card" style="width: 18rem;">
-//     <div class="card-body" style="background-color: rgb(106, 106, 221);">
-//       <h5 class="card-title">Name:${member.name}</h5>
-//       <h6 class="card-title"></h6>
-//       <i class="fas fa-mug-hot"> Manager</i>
-//     </div>
-//     <ul class="list-group list-group-flush">
-//     <li class="list-group-item email">Email:${member.email}</li>
-//       <li class="list-group-item id">ID:${member.id}</li>
-//       <li class="list-group-item officeNum">Office Number:${member.officeNumber}</li>
-//     </ul>
-//   </div>
-// // </div> `
-// } else("Add Engineer"){
-// let appendEngineer = "";
-// appendEngineer = `<div class="col-3">
-// <div class="card" style="width: 18rem;">
-//     <div class="card-body" style="background-color: rgb(106, 106, 221);">
-//       <h5 class="card-title">Name:${member.name}</h5>
-//       <h6 class="card-title"></h6>
-//       <i class="fas fa-glasses"> Engineer</i>
-//     </div>
-//     <ul class="list-group list-group-flush">
-//     <li class="list-group-item email">Email:${member.email}</li>
-//       <li class="list-group-item id">ID:${member.id}</li>
-//       <li class="list-group-item gitHub">Github:${member.gitHub}</li>
-//     </ul>
-//   </div>
-// </div>`
-// }
-//    }
-//   )
-// }
+
+   else if(member.type ==="Manager"){
+let appendManager = "";
+appendManager = `<div class="row">
+<div class="col-3">
+<div class="card" style="width: 18rem;">
+    <div class="card-body" style="background-color: rgb(106, 106, 221);">
+      <h5 class="card-title">Name:${member.name}</h5>
+      <h6 class="card-title"></h6>
+      <i class="fas fa-mug-hot"> Manager</i>
+    </div>
+    <ul class="list-group list-group-flush">
+    <li class="list-group-item email">Email:${member.email}</li>
+      <li class="list-group-item id">ID:${member.id}</li>
+      <li class="list-group-item officeNum">Office Number:${member.officeNumber}</li>
+    </ul>
+  </div>
+// </div> `
+} else {
+let appendEngineer = "";
+appendEngineer = `<div class="col-3">
+<div class="card" style="width: 18rem;">
+    <div class="card-body" style="background-color: rgb(106, 106, 221);">
+      <h5 class="card-title">Name:${member.name}</h5>
+      <h6 class="card-title"></h6>
+      <i class="fas fa-glasses"> Engineer</i>
+    </div>
+    <ul class="list-group list-group-flush">
+    <li class="list-group-item email">Email:${member.email}</li>
+      <li class="list-group-item id">ID:${member.id}</li>
+      <li class="list-group-item gitHub">Github:${member.gitHub}</li>
+    </ul>
+  </div>
+</div>`
+}
+   }
+  )
+}
 
 generalQuestions = [
   { 
@@ -187,9 +188,9 @@ generalQuestions = [
     })
 } 
 
-if (response === "Build team")(){
+// if (response === "Build team")(){
   //then promise to populate html with their response only UNLESS Build team has no added persons in it.
-}
+// }
 // .then((response) => {
 //   // },
   //         const filename = `${response.title}.html`; //'README.md' or '${inquiryResponse.title}.md' to name the top of the readmefile tab. Note:Putting it as readme.md WILL replace current readme file that I created.
