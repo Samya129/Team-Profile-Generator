@@ -4,11 +4,42 @@ const fs = require("fs");
 const Intern = require("./lib/Intern");
 const Manager = require("./lib/Manager");
 const Engineer = require ("./lib/Engineer");
-const employees = [];
+const Employee = require("./lib/Employee");
+const team = [];
 
 const generateHTML = (response)=>{
-  ''
+let appendedInfo = "";
+  if (response === " Add Intern"||" Add Manager" || "Add Engineer"){
+    appendedInfo = `<div class="row">
+    <div class="col-6">
+        <div class="card" style="width: 18rem;">
+            <div class="card-body" style="background-color: rgb(106, 106, 221);">
+            <h5 class="card-title">Name:${name}</h5>
+            <h6 class="card-title"></h6>
+            <i class="fas fa-user-graduate"> Intern</i>
+            </div>
+            <ul class="list-group list-group-flush">
+            <li class="list-group-item id">ID:${id}</li>
+            <li class="list-group-item email">Email: ${email}</li>
+            <li class="list-group-item school">School: ${school}</li>
+            </ul>
+            <div class="card-body">
+            <a href="#" class="card-link">Card link</a>
+            <a href="#" class="card-link">Another link</a>
+            </div>
+        </div>
+    </div>`
+  }
 }
+
+
+
+
+
+
+
+
+
 
 generalQuestions = [
   { 
@@ -82,7 +113,9 @@ generalQuestions = [
         message: 'What school do you go to?',
       },
     ])
-    .then(response =>{
+    .then(response => {
+      const intern = new Intern(response.name, response.email, response.id, response.school)
+      team.push(intern)
         //console.log(response) //Returns the responses of the question and all the properties
         askQuestion();
     }) 
@@ -100,8 +133,9 @@ generalQuestions = [
         message: 'What is your working office number?',
       },
     ])
-    .then(response =>{
-        //console.log(response)
+    .then(response => {
+      const manager = new Manager(response.name, response.email, response.id, response.officeNumber)
+      team.push(manager)
         askQuestion();
     }) 
 }
@@ -118,8 +152,9 @@ generalQuestions = [
         message: 'What is your github username?',
       },
     ])
-    .then(response =>{
-        //console.log(response)
+    .then(response => {
+      const engineer = new Engineer(response.name, response.email, response.id, response.gitHub)
+      team.push(engineer)
         askQuestion();
     })
-}
+} 
