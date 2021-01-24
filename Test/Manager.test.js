@@ -8,7 +8,7 @@ describe('Manager Sub Class', () => {
         const officeNumberTest = '727-269-7979';
   
         // Act
-        const obj = new Intern("Foo",2, "ManagerTest@gmail.com", officeNumberTest );
+        const obj = new Manager ("Foo",2, "ManagerTest@gmail.com", officeNumberTest );
   
         // Assert
         expect(obj.officeNumber).toEqual("727-269-7979");

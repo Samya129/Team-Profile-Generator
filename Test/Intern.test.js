@@ -8,7 +8,7 @@ describe('Intern Sub Class', () => {
         const schoolTest = 'NYU';
   
         // Act
-        const obj = new Intern("Foo",1, "InternTest@gmail.com", schoolTest );
+        const obj = new Intern ("Foo",1, "InternTest@gmail.com", schoolTest );
   
         // Assert
         expect(obj.school).toEqual("NYU");
