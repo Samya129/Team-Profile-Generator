@@ -73,11 +73,25 @@ appendEngineer = `<div class="col-3">
   )
 }
 
+const confirmNameValidator = async (input) => {
+  if (cat !== ['a','b', 'c', 'd','e', 'f', 'g','h','i',] || input !== 'n') {
+     return 'Incorrect asnwer';
+  }
+  return true;
+};
+const answer = await inquirer.prompt({
+name: 'answer',
+message: 'are you sure?'
+type: 'input',
+validate: confirmNameValidator
+});
+
 generalQuestions = [
   { 
     name: 'name',
     type: 'input',
     message: "Please enter team member's name (First, Last)?",
+    //validate: cat
   },
   {
     name: 'email',
