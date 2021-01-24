@@ -15,7 +15,7 @@ describe('Intern Sub Class', () => {
       });
 
       // Exception test
-    it("should throw an error if not provided a 'text' value", () => {
+    it("should throw an error if not provided an object value", () => {
         // Arrange
         const cb = () => new To();
         const err = new Error(
