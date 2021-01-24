@@ -73,18 +73,27 @@ appendEngineer = `<div class="col-3">
   )
 }
 
-const confirmNameValidator = async (input) => {
-  if (cat !== ['a','b', 'c', 'd','e', 'f', 'g','h','i',] || input !== 'n') {
-     return 'Incorrect asnwer';
-  }
-  return true;
-};
-const answer = await inquirer.prompt({
-name: 'answer',
-message: 'are you sure?'
-type: 'input',
-validate: confirmNameValidator
-});
+
+// const confirmNameValidator = async (input) => {
+//   if (cat !== ['a','b', 'c', 'd','e', 'f', 'g','h','i',] || input !== 'n') {
+//      return 'Incorrect asnwer';
+//   }
+//   return true;
+// };
+// const answer = await inquirer.prompt({
+// name: 'answer',
+// message: 'are you sure?'
+// type: 'input',
+// // validate: function (confirmNameValidator)
+// });
+
+
+
+
+
+
+
+
 
 generalQuestions = [
   { 
@@ -213,3 +222,4 @@ generalQuestions = [
   //         const filename = `${response.title}.html`; //'README.md' or '${inquiryResponse.title}.md' to name the top of the readmefile tab. Note:Putting it as readme.md WILL replace current readme file that I created.
   //         return asyncWrite(filename, generateHTML(response) )}
   //     ) .then (()=>{ console.log("Success!")}).catch ((err)=>{console.log(err)}) ;
+  //Need to add Employee on line 7
