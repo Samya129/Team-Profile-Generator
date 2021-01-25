@@ -4,10 +4,11 @@ describe("Employees",() =>{
   describe("Initialization", () =>{
     it("should create an object with 'employees' array, name, email, and id.",()=>{
       //creates a new array of the 'employees'
-      const team = new Team();
+      const employee = new Employee("name", "email","id", "officeNumber");
+console.log(employee)
 
       //Verify that the new object has the correct properties
-      expect(team).toEqual({ employees: ["Foo"], email: "EmployeeTest@gmail.com", id: 0 });
+      expect(employee).toEqual({ name: "name", email: "email", id: "id", contact: "officeNumber"});
     });
   });
 

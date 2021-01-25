@@ -8,17 +8,37 @@ const Employee = require("./lib/Employee");
 //why is this not working?
 const members = [];
 
-// const generateHTML = (response)=>{}
 const buildTeam = ()=>{ 
+  const head = `<!DOCTYPE html>
+  <html lang="en">
+  <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Team-Profile Generator</title>
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+      <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
+      <link rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+      integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
+      crossorigin="anonymous"/>
+  </head>
+  <body>
+      <div style="background-color: rgb(218, 88, 88); text-align: center; color: white;" class="jumbotron jumbotron-fluid">
+          <div class="container">
+            <h1 class="display-4">My Team</h1>
+            <p class="lead"></p>
+          </div>
+      </div>`
+      const footer = `</body>
+      </html>`
   //console.log(members)
-  let appendIntern = "";
-  let appendManager = "";
-  let appendEngineer = "";
+  let employee = ""
   members.map(function(member){
 //let appendIntern = "";
-  if (member.type === "Intern"){
+  if (member.getRole() === "Intern"){
     //console.log("hi!")
-    appendIntern = `<div class="row">
+    employee += `<div class="row">
     <div class="col-6">
         <div class="card" style="width: 18rem;">
             <div class="card-body" style="background-color: rgb(106, 106, 221);">
@@ -35,9 +55,9 @@ const buildTeam = ()=>{
     </div>`
   }
 
-   else if(member.type ==="Manager"){
+   else if(member.getRole() ==="Manager"){
 // let appendManager = "";
-appendManager = `<div class="row">
+employee += `<div class="row">
 <div class="col-3">
 <div class="card" style="width: 18rem;">
     <div class="card-body" style="background-color: rgb(106, 106, 221);">
@@ -52,9 +72,10 @@ appendManager = `<div class="row">
     </ul>
   </div>
 // </div> `
+   
 } else {
 //let appendEngineer = "";
-appendEngineer = `<div class="col-3">
+employee += `<div class="col-3">
 <div class="card" style="width: 18rem;">
     <div class="card-body" style="background-color: rgb(106, 106, 221);">
       <h5 class="card-title">Name:${member.name}</h5>
@@ -68,33 +89,14 @@ appendEngineer = `<div class="col-3">
     </ul>
   </div>
 </div>`
+
 }
    }
   )
+  // console.log(employee)
+  console.log(head+employee+footer)
+  //write the file xyzy
 }
-
-
-// const confirmNameValidator = async (input) => {
-//   if (cat !== ['a','b', 'c', 'd','e', 'f', 'g','h','i',] || input !== 'n') {
-//      return 'Incorrect asnwer';
-//   }
-//   return true;
-// };
-// const answer = await inquirer.prompt({
-// name: 'answer',
-// message: 'are you sure?'
-// type: 'input',
-// // validate: function (confirmNameValidator)
-// });
-
-
-
-
-
-
-
-
-
 generalQuestions = [
   { 
     name: 'name',
@@ -112,19 +114,8 @@ generalQuestions = [
     type: 'input',
     message: "What is the team member's id number?",
   },]
-// inquirer
-//   .prompt([
-//       generalQuestions[0],
-//       generalQuestions[1],
-//       generalQuestions[2],
-//      ])
-//     .then((response) => {
-// },
-//         const filename = `${response.title}.html`; //'README.md' or '${inquiryResponse.title}.md' to name the top of the readmefile tab. Note:Putting it as readme.md WILL replace current readme file that I created.
-//         return asyncWrite(filename, generateHTML(response) )}
-//     ) .then (()=>{ console.log("Success!")}).catch ((err)=>{console.log(err)}) ;
 
-    const askQuestion = () =>{
+  const askQuestion = () =>{
         inquirer
         .prompt([
             {
@@ -169,7 +160,7 @@ generalQuestions = [
       },
     ])
     .then(response => {
-      const intern = new Intern(response.name, response.email, response.id, response.school)
+      const intern = new Intern(response.name, response.email, response.id, response.school, "6427839")
       members.push(intern)
         //console.log(response) //Returns the responses of the question and all the properties
         askQuestion();
@@ -214,12 +205,23 @@ generalQuestions = [
     })
 } 
 
-// if (response === "Build team")(){
-  //then promise to populate html with their response only UNLESS Build team has no added persons in it.
-// }
+
+//grabbing the amount of cards of employees.
+//append cards to html string
+//
+// var body  ;
+// team.forEach(member => {
+//  body += member
+//  console.log(body)
+  
+// });
+
+//If you do NOt want to clear it, claim the variable outside for loop. 
+
+
 // .then((response) => {
 //   // },
-  //         const filename = `${response.title}.html`; //'README.md' or '${inquiryResponse.title}.md' to name the top of the readmefile tab. Note:Putting it as readme.md WILL replace current readme file that I created.
-  //         return asyncWrite(filename, generateHTML(response) )}
-  //     ) .then (()=>{ console.log("Success!")}).catch ((err)=>{console.log(err)}) ;
+//           const filename = `${response.title}.html`;  
+//           return asyncWrite(filename, generateHTML(response) )}
+//       ) .then (()=>{ console.log("Success!")}).catch ((err)=>{console.log(err)}) ;
   //Need to add Employee on line 7
