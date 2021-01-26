@@ -1,6 +1,5 @@
 const inquirer = require("inquirer");
 const fs = require("fs");
-// const asyncWrite = util.promisify(fs.writeFile)
 const Intern = require("./lib/Intern");
 const Manager = require("./lib/Manager");
 const Engineer = require ("./lib/Engineer");
@@ -35,20 +34,19 @@ const buildTeam = ()=>{
   //console.log(members)
   let employee = ""
   members.map(function(member){
-//let appendIntern = "";
   if (member.getRole() === 'Intern'){
     //console.log("hi!")
     employee += `<div class="row">
     <div class="col-md-4">
         <div class="card" style="width: 18rem;">
             <div class="card-body" style="background-color: rgb(106, 106, 221);">
-            <h5 class="card-title">Name:${member.name}</h5>
+            <h5 class="card-title">Name: ${member.name}</h5>
             <h6 class="card-title"></h6>
             <i class="fas fa-user-graduate"> Intern</i>
             </div>
             <ul class="list-group list-group-flush">
             <li class="list-group-item email">Email: ${member.email}</li>
-            <li class="list-group-item id">ID:${member.id}</li>
+            <li class="list-group-item id">ID: ${member.id}</li>
             <li class="list-group-item school">School: ${member.school}</li>
             </ul>
         </div>
@@ -56,47 +54,44 @@ const buildTeam = ()=>{
   }
 
    else if(member.getRole() ==="Manager"){
-// let appendManager = "";
 employee += `<div class="row">
 <div class="col-md-4">
 <div class="card" style="width: 18rem;">
     <div class="card-body" style="background-color: rgb(106, 106, 221);">
-      <h5 class="card-title">Name:${member.name}</h5>
+      <h5 class="card-title">Name: ${member.name}</h5>
       <h6 class="card-title"></h6>
       <i class="fas fa-mug-hot"> Manager</i>
     </div>
     <ul class="list-group list-group-flush">
-    <li class="list-group-item email">Email:${member.email}</li>
-      <li class="list-group-item id">ID:${member.id}</li>
-      <li class="list-group-item officeNumber">Office Number:${member.officeNumber}</li>
+    <li class="list-group-item email">Email: ${member.email}</li>
+      <li class="list-group-item id">ID: ${member.id}</li>
+      <li class="list-group-item officeNumber">Office Number: ${member.officeNumber}</li>
     </ul>
   </div>
  </div> `
    
 } else {
-//let appendEngineer = "";
 employee += `<div class="row"> 
 <div class="col-md-4">
 <div class="card" style="width: 18rem;">
     <div class="card-body" style="background-color: rgb(106, 106, 221);">
-      <h5 class="card-title">Name:${member.name}</h5>
+      <h5 class="card-title">Name: ${member.name}</h5>
       <h6 class="card-title"></h6>
       <i class="fas fa-glasses"> Engineer</i>
     </div>
     <ul class="list-group list-group-flush">
-    <li class="list-group-item email">Email:${member.email}</li>
-      <li class="list-group-item id">ID:${member.id}</li>
-      <li class="list-group-item gitHub">Github:${member.gitHub}</li>
+    <li class="list-group-item email">Email: ${member.email}</li>
+      <li class="list-group-item id">ID: ${member.id}</li>
+      <li class="list-group-item gitHub">Github: ${member.gitHub}</li>
     </ul>
   </div>
 </div>`
-
 }
    }
   );
-  // console.log(employee)
+  //console.log(employee)
   //console.log(head+employee+footer)
-  //write the file xyzy
+  
   const fileName = "./dist/Team-Profile-Generator.html";
   const appendHtml = (head+employee+footer);
   
@@ -110,7 +105,6 @@ generalQuestions = [
     name: 'name',
     type: 'input',
     message: "Please enter team member's name (First, Last)?",
-    //validate: cat
   },
   {
     name: 'email',
@@ -168,7 +162,7 @@ generalQuestions = [
       },
     ])
     .then(response => {
-      const intern = new Intern(response.name, response.email, response.id, response.school, "6427839")
+      const intern = new Intern(response.name, response.email, response.id, response.school)
       members.push(intern)
         //console.log(response) //Returns the responses of the question and all the properties
         askQuestion();
