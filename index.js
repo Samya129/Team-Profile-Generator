@@ -29,7 +29,8 @@ const buildTeam = ()=>{
             <p class="lead"></p>
           </div>
       </div>`
-      const footer = `</body>
+      const footer = `</div> 
+      </body>
       </html>`
   //console.log(members)
   let employee = ""
@@ -37,7 +38,7 @@ const buildTeam = ()=>{
   if (member.getRole() === 'Intern'){
     //console.log("hi!")
     employee += `<div class="row">
-    <div class="col-md-4">
+    <div class="col-md-3">
         <div class="card" style="width: 18rem;">
             <div class="card-body" style="background-color: rgb(106, 106, 221);">
             <h5 class="card-title">Name: ${member.name}</h5>
@@ -46,7 +47,7 @@ const buildTeam = ()=>{
             </div>
             <ul class="list-group list-group-flush">
             <li class="list-group-item email">Email: ${member.email}</li>
-            <li class="list-group-item id">ID: ${member.id}</li>
+            <li class="list-group-item id">Id: ${member.id}</li>
             <li class="list-group-item school">School: ${member.school}</li>
             </ul>
         </div>
@@ -54,8 +55,7 @@ const buildTeam = ()=>{
   }
 
    else if(member.getRole() ==="Manager"){
-employee += `<div class="row">
-<div class="col-md-4">
+employee += `<div class="col-md-3">
 <div class="card" style="width: 18rem;">
     <div class="card-body" style="background-color: rgb(106, 106, 221);">
       <h5 class="card-title">Name: ${member.name}</h5>
@@ -64,15 +64,14 @@ employee += `<div class="row">
     </div>
     <ul class="list-group list-group-flush">
     <li class="list-group-item email">Email: ${member.email}</li>
-      <li class="list-group-item id">ID: ${member.id}</li>
+      <li class="list-group-item id">Id: ${member.id}</li>
       <li class="list-group-item officeNumber">Office Number: ${member.officeNumber}</li>
     </ul>
   </div>
  </div> `
    
 } else {
-employee += `<div class="row"> 
-<div class="col-md-4">
+employee += `<div class="col-md-3">
 <div class="card" style="width: 18rem;">
     <div class="card-body" style="background-color: rgb(106, 106, 221);">
       <h5 class="card-title">Name: ${member.name}</h5>
@@ -81,7 +80,7 @@ employee += `<div class="row">
     </div>
     <ul class="list-group list-group-flush">
     <li class="list-group-item email">Email: ${member.email}</li>
-      <li class="list-group-item id">ID: ${member.id}</li>
+      <li class="list-group-item id">Id: ${member.id}</li>
       <li class="list-group-item gitHub">Github: ${member.gitHub}</li>
     </ul>
   </div>
