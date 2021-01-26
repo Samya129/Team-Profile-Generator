@@ -17,7 +17,7 @@ describe('Intern Sub Class', () => {
 
       it("Should appear invalid if user does not input a string value", () => {
         // Arrange
-        const textString = new  Intern("Foo", 1, "NYU@gmail.com", "");
+        const textString = new  Intern("Foo", 1, "St.Johns@gmail.com", "");
           expect(() => {
             if (textString.school === "")
             throw new Error("You did not add a valid string.");
