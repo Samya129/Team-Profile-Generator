@@ -12,21 +12,28 @@ describe("Employees",() =>{
     });
   });
 
-  // describe("Add Employee", () => {
-//   it("Should add an employee to the 'employees' array", () => {
-//     // create new objects to test with
-//     const employee = new Employee("Vanessa Cordova", member.email,6)
-//     const team = new Team();
 
-//     //Add the employee object to the team object
-//     team.addEmployee(employee);
 
-//     //Verify that the employee was added to the team array
-//     expect(team.employees.length).toEqual(1);
-//     expect(team.employees[0].toBe(employee));
-//   });
-//   it("should not add an employee if the 'inputs' are empty", ()=>{
-//     const employee = new Employee("", member.email === "",member.id === "" )
-//     const team = new Team(); 
-//   })
-// })}) 
+
+
+
+
+  describe("Add Employee", () => {
+  it("Should confirm that a new employee was added to the array", () => {
+    // create new objects to test with
+    const employee = new Employee("name", "email","id", "officeNumber")
+    
+
+    //Add the employee object to the employee object
+    employee.addEmployee(employee);
+
+    //Verify that the employee was added to the employee array
+    expect(employee.length).toEqual(1);
+    expect(employee[0].toBe(employee));
+  });
+  // it("should not add an employee if the 'inputs' are empty", ()=>{
+  //   const employee = new Employee({ name: "name", email: "email", id: "id", contact: "officeNumber"})
+  //   const team = new Team(); 
+  // })
+})
+}) 

@@ -15,16 +15,13 @@ describe('Intern Sub Class', () => {
         expect(internObj.school).toEqual("NYU");
       });
 
-    //   // Exception test
-    // it("should throw an error if not provided an object value", () => {
-    //     // Arrange
-    //     const cb = () => new Intern();
-    //     const err = new Error(
-    //       "Expected parameter 'text' to be a non empty string"
-    //     );
-  
-    //     // Assert
-    //     expect(cb).toThrowError(err);
-    //   });
-    });
+      it("Should appear invalid if user does not input a string value", () => {
+        // Arrange
+        const textString = new  Intern("Foo", 1, "NYU@gmail.com", "");
+          expect(() => {
+            if (textString.school === "")
+            throw new Error("You did not add a valid string.");
+          }).toThrow("You did not add a valid string.");
+      });
+      });
   });

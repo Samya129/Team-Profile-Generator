@@ -39,7 +39,7 @@ const buildTeam = ()=>{
   if (member.getRole() === 'Intern'){
     //console.log("hi!")
     employee += `<div class="row">
-    <div class="col-6">
+    <div class="col-md-4">
         <div class="card" style="width: 18rem;">
             <div class="card-body" style="background-color: rgb(106, 106, 221);">
             <h5 class="card-title">Name:${member.name}</h5>
@@ -58,7 +58,7 @@ const buildTeam = ()=>{
    else if(member.getRole() ==="Manager"){
 // let appendManager = "";
 employee += `<div class="row">
-<div class="col-3">
+<div class="col-md-4">
 <div class="card" style="width: 18rem;">
     <div class="card-body" style="background-color: rgb(106, 106, 221);">
       <h5 class="card-title">Name:${member.name}</h5>
@@ -71,11 +71,12 @@ employee += `<div class="row">
       <li class="list-group-item officeNumber">Office Number:${member.officeNumber}</li>
     </ul>
   </div>
-// </div> `
+ </div> `
    
 } else {
 //let appendEngineer = "";
-employee += `<div class="col-3">
+employee += `<div class="row"> 
+<div class="col-md-4">
 <div class="card" style="width: 18rem;">
     <div class="card-body" style="background-color: rgb(106, 106, 221);">
       <h5 class="card-title">Name:${member.name}</h5>
@@ -92,14 +93,16 @@ employee += `<div class="col-3">
 
 }
    }
-  )
+  );
   // console.log(employee)
   //console.log(head+employee+footer)
   //write the file xyzy
-  const fileName = "Team-Profile-Generator.html"
+  const fileName = "./dist/Team-Profile-Generator.html";
+  const appendHtml = (head+employee+footer);
   
-  fs.writeFile(fileName, buildTeam, (error) =>
+  fs.writeFile(fileName, appendHtml, (error) =>
   error ? console.error(error) : console.log("Success!")
+  );
 }
 
 generalQuestions = [

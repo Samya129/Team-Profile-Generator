@@ -13,17 +13,13 @@ describe('Engineer Sub Class', () => {
         // Assert
         expect(obj.gitHub).toEqual("Samya129");
       });
-    //   // Exception test
-    // it("should throw an error if not provided an object value", () => {
-    //     // Arrange
-    //     const cb = () => new To();
-    //     const err = new Error(
-    //       "Expected parameter 'text' to be a non empty string"
-    //     );
-  
-    //     // Assert
-    //     expect(cb).toThrowError(err);
-    //     expect(obj.getRole()).toThrowError(err);
-    //   });
-    });
+      it("Should appear invalid if user does not input a string value", () => {
+        // Arrange
+        const textString = new  Engineer("Foo", 3, "NYU@gmail.com", "");
+          expect(() => {
+            if (textString.gitHub === "")
+            throw new Error("You did not add a valid string.");
+          }).toThrow("You did not add a valid string.");
+      });
+      });
   });
