@@ -36,7 +36,7 @@ const buildTeam = ()=>{
   let employee = ""
   members.map(function(member){
 //let appendIntern = "";
-  if (member.getRole() === "Intern"){
+  if (member.getRole() === 'Intern'){
     //console.log("hi!")
     employee += `<div class="row">
     <div class="col-6">
@@ -68,7 +68,7 @@ employee += `<div class="row">
     <ul class="list-group list-group-flush">
     <li class="list-group-item email">Email:${member.email}</li>
       <li class="list-group-item id">ID:${member.id}</li>
-      <li class="list-group-item officeNum">Office Number:${member.officeNumber}</li>
+      <li class="list-group-item officeNumber">Office Number:${member.officeNumber}</li>
     </ul>
   </div>
 // </div> `
@@ -94,9 +94,14 @@ employee += `<div class="col-3">
    }
   )
   // console.log(employee)
-  console.log(head+employee+footer)
+  //console.log(head+employee+footer)
   //write the file xyzy
+  const fileName = "Team-Profile-Generator.html"
+  
+  fs.writeFile(fileName, buildTeam, (error) =>
+  error ? console.error(error) : console.log("Success!")
 }
+
 generalQuestions = [
   { 
     name: 'name',
@@ -216,7 +221,6 @@ generalQuestions = [
   
 // });
 
-//If you do NOt want to clear it, claim the variable outside for loop. 
 
 
 // .then((response) => {
@@ -224,4 +228,22 @@ generalQuestions = [
 //           const filename = `${response.title}.html`;  
 //           return asyncWrite(filename, generateHTML(response) )}
 //       ) .then (()=>{ console.log("Success!")}).catch ((err)=>{console.log(err)}) ;
-  //Need to add Employee on line 7
+//   //Need to add Employee on line 7
+//   const filename = 
+//   buildTeam.read = function(filename)
+
+//   const FileIO = require("./fileIO");
+
+// const fileIO = new FileIO();
+
+// fileIO.write('Team-profile-generator.html', "Working?");
+
+// const testingHTML = fileIO.read('Team-profile-generator.html');
+
+// console.log(testingHTML);
+
+// fileIO.append("message.txt", "\nGoodbye World!");
+
+// const message2 = fileIO.read("message.txt");
+
+// console.log(message2);
