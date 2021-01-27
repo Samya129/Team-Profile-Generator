@@ -25,8 +25,3 @@ describe('Manager Sub Class', () => {
     });
     });
   });
-//empty manager string does not throw any error????
-
-
-//confirm that with a number less than 10 digits throw an error (if statement?)
-//a test to make sure its not letters, only numbers!

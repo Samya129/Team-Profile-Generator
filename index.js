@@ -4,7 +4,7 @@ const Intern = require("./lib/Intern");
 const Manager = require("./lib/Manager");
 const Engineer = require ("./lib/Engineer");
 const Employee = require("./lib/Employee");
-//why is this not working?
+
 const members = [];
 
 const buildTeam = ()=>{ 
@@ -108,13 +108,19 @@ generalQuestions = [
   {
     name: 'email',
     type: 'input',
-    message: "What is the team member's e-mail address?",
+    message: "What is this team member's e-mail address?",
   },
   {
     name: 'id',
     type: 'input',
-    message: "What is the team member's id number?",
-  },]
+    message: "What is this team member's id number?",
+  },
+  {
+    name: 'manager',
+    type: 'input',
+    message: "What is your team manager's name?",
+  },
+]
 
   const askQuestion = () =>{
         inquirer
@@ -144,8 +150,7 @@ generalQuestions = [
             //console.log(response.userChoice)
         })
     }
-    askQuestion();
-
+    
 //Intern Questions
   const addIntern = ()=>{
     inquirer
@@ -171,13 +176,20 @@ generalQuestions = [
   const addManager = ()=>{
     inquirer
   .prompt([
-    generalQuestions[0],
+    generalQuestions[3],
     generalQuestions[1],
     generalQuestions[2],
       {
         name: 'officeNumber',
         type: 'input',
-        message: 'What is your working office number?',
+        message: "What is this team member's working office number?",
+        validate: async (input) => {
+          if (! input || isNaN(input)) {
+             return 'You did not input a valid number';
+          }
+          //! isNaN means it is a string (letters in a string).
+          return true;
+        }
       },
     ])
     .then(response => {
@@ -205,3 +217,4 @@ generalQuestions = [
         askQuestion();
     })
 } 
+addManager();

@@ -1,6 +1,5 @@
 const Intern = require("../lib/Intern.js");
 
-
 describe('Intern Sub Class', () => {
     describe('Confirmation of Intern properties/school', () => {
       // Positive test
@@ -24,5 +23,3 @@ describe('Intern Sub Class', () => {
       });
       });
   });
-
-  //empty intern string does not throw error????

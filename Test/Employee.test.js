@@ -11,6 +11,7 @@ describe("Employees",() =>{
       expect(iEmployee).toEqual({ name: "name", email: "email", id: "id", contact: this.school});
     });
   });
+
   describe("Confirmation of Full Manager Card", () =>{
     it("should create an object with an 'employee' array, name, email, id, and manager's phone number",()=>{
       //creates a new array of the 'employee'
@@ -21,6 +22,7 @@ describe("Employees",() =>{
       expect(mEmployee).toEqual({ name: "name", email: "email", id: "id", contact: "officeNumber"});
     });
   });
+
   describe("Confirmation of Full Engineer Card", () =>{
     it("should create an object with an 'employee' array, name, email, id, and the engineer's gitHub account",()=>{
       //creates a new array of the 'employee'
@@ -35,24 +37,10 @@ describe("Employees",() =>{
   it("Should display an error to the user when nothing is entered for each value", () => {
     const tEmployee = new Employee("", "", "", "");
     expect(() => {
-      if (tEmployee.getName() === ""){
-        //console.log("Name is empty")
-      }
-      if(tEmployee.getId() === ""){
-      //console.log("Id is empty")
-      }
-      if(tEmployee.getEmail() === ""){
-        //console.log("Email is empty")
-      }
-      if(tEmployee.contact=== ""){
-        console.log("The user's contact information is empty")
+      if (!tEmployee.getName()|| !tEmployee.getId()|| !tEmployee.getEmail()||!tEmployee.contact){
+        //console.log(" Entry is empty.Please try again")
       }
         throw new Error("Opps, I think you left this question blank. Please try again.");
     }).toThrow("Opps, I think you left this question blank. Please try again.");
   });
-
-
- //if inputs any or all is empty throw an error
- //is this if statement correct?? Can it be shortened?
-   
 }) 

@@ -13,6 +13,7 @@ describe('Engineer Sub Class', () => {
         // Assert
         expect(obj.gitHub).toEqual("Samya129");
       });
+      
       it("Should appear invalid if user does not input a string value", () => {
         // Arrange
         const textString = new  Engineer("Foo", 3, "NYU@gmail.com", "");
@@ -22,6 +23,4 @@ describe('Engineer Sub Class', () => {
           }).toThrow("Uh oh! I think you forgot something. Please enter a valid gitHub account.");
       });
       });
-  });
-  //empty engineer string does not throw error????
-  
+  });  
