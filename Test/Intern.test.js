@@ -16,12 +16,13 @@ describe('Intern Sub Class', () => {
       });
 
       it("Should appear invalid if user does not input a string value", () => {
-        // Arrange
         const textString = new  Intern("Foo", 1, "St.Johns@gmail.com", "");
           expect(() => {
             if (textString.school === "")
-            throw new Error("You did not add a valid string.");
-          }).toThrow("You did not add a valid string.");
+            throw new Error("Opps, you did not enter any school. Please enter a valid school.");
+          }).toThrow("Opps, you did not enter any school. Please enter a valid school.");
       });
       });
   });
+
+  //empty intern string does not throw error????

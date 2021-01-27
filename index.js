@@ -46,8 +46,8 @@ const buildTeam = ()=>{
             <i class="fas fa-user-graduate"> Intern</i>
             </div>
             <ul class="list-group list-group-flush">
-            <li class="list-group-item email">Email: ${member.email}</li>
-            <li class="list-group-item id">Id: ${member.id}</li>
+            <li class="list-group-item id">ID: ${member.id}</li>
+            <li class="list-group-item email">Email:<a href="mailto:${member.email}">${member.email}</a></li>
             <li class="list-group-item school">School: ${member.school}</li>
             </ul>
         </div>
@@ -63,8 +63,8 @@ employee += `<div class="col-md-3">
       <i class="fas fa-mug-hot"> Manager</i>
     </div>
     <ul class="list-group list-group-flush">
-    <li class="list-group-item email">Email: ${member.email}</li>
-      <li class="list-group-item id">Id: ${member.id}</li>
+    <li class="list-group-item id">ID: ${member.id}</li>
+    <li class="list-group-item email">Email:<a href="mailto:${member.email}">${member.email}</a></li>
       <li class="list-group-item officeNumber">Office Number: ${member.officeNumber}</li>
     </ul>
   </div>
@@ -79,9 +79,9 @@ employee += `<div class="col-md-3">
       <i class="fas fa-glasses"> Engineer</i>
     </div>
     <ul class="list-group list-group-flush">
-    <li class="list-group-item email">Email: ${member.email}</li>
-      <li class="list-group-item id">Id: ${member.id}</li>
-      <li class="list-group-item gitHub">Github: ${member.gitHub}</li>
+    <li class="list-group-item id">ID: ${member.id}</li>
+    <li class="list-group-item email">Email:<a href="mailto:${member.email}">${member.email}</a></li>
+      <li class="list-group-item gitHub">Github:<a href="https://github.com/${member.gitHub}"target="_blank">${member.gitHub}</a></li>
     </ul>
   </div>
 </div>`

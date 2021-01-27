@@ -18,8 +18,10 @@ describe('Engineer Sub Class', () => {
         const textString = new  Engineer("Foo", 3, "NYU@gmail.com", "");
           expect(() => {
             if (textString.gitHub === "")
-            throw new Error("You did not add a valid string.");
-          }).toThrow("You did not add a valid string.");
+            throw new Error("Uh oh! I think you forgot something. Please enter a valid gitHub account.");
+          }).toThrow("Uh oh! I think you forgot something. Please enter a valid gitHub account.");
       });
       });
   });
+  //empty engineer string does not throw error????
+  

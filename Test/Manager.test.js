@@ -14,16 +14,19 @@ describe('Manager Sub Class', () => {
         expect(obj.officeNumber).toEqual("727-269-7979");
       });
 
-    //   // Exception test
+    // Exception test
     it("Should appear invalid if user does not input a string value", () => {
       // Arrange
-      const textString = new  Manager("Foo", 2, "NYU@gmail.com", "");
+      const textString = new  Manager("Foo", 2, "Cornell@gmail.com", "");
         expect(() => {
           if (textString.officeNumber === "")
-          throw new Error("You did not add a valid string.");
-        }).toThrow("You did not add a valid string.");
+          throw new Error("You did not add a valid office number. Please enter a valid 10-digit office number.");
+        }).toThrow("You did not add a valid office number. Please enter a valid 10-digit office number.");
     });
     });
   });
+//empty manager string does not throw any error????
 
-  
+
+//confirm that with a number less than 10 digits throw an error (if statement?)
+//a test to make sure its not letters, only numbers!
