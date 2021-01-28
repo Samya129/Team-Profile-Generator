@@ -66,7 +66,7 @@ const buildTeam = () => {
       <li class="list-group-item officeNumber">Office Number: ${member.officeNumber}</li>
     </ul>
   </div>
- </div> `;
+ </div>`;
     } else {
       employee += `<div class="col-md-3">
 <div class="card" style="width: 18rem;">
@@ -125,16 +125,13 @@ const askQuestion = () => {
         name: "userChoice",
         type: "list",
         message: "What would you like to do?",
-        choices: ["Add Intern", "Add Manager", "Add Engineer", "Build team"],
+        choices: ["Add Intern", "Add Engineer", "Build team"],
       },
     ])
     .then((response) => {
       switch (response.userChoice) {
         case "Add Intern":
           addIntern();
-          break;
-        case "Add Manager":
-          addManager();
           break;
         case "Add Engineer":
           addEngineer();
