@@ -49,6 +49,10 @@ To run test, run the following commands:
 * npm install then
 * node index OR node index.js
 ```
+To check the following tests within 'Test folder', run the following command:
+```
+*npm run test
+```
 
 ## Criteria
 ```
