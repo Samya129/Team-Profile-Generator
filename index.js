@@ -37,10 +37,10 @@ const buildTeam = () => {
   members.map(function (member) {
     if (member.getRole() === "Intern") {
       //console.log("hi!")
-      employee += `<div class="row">
+      employee += `
     <div class="col-md-3">
         <div class="card" style="width: 18rem;">
-            <div class="card-body" style="background-color: rgb(106, 106, 221);">
+            <div class="card-body" style="background-color: rgb(81, 137, 233);">
             <h5 class="card-title">Name: ${member.name}</h5>
             <h6 class="card-title"></h6>
             <i class="fas fa-user-graduate"> Intern</i>
@@ -53,9 +53,10 @@ const buildTeam = () => {
         </div>
     </div>`;
     } else if (member.getRole() === "Manager") {
-      employee += `<div class="col-md-3">
+      employee += `<div class="row">
+      <div class="col-md-3">
 <div class="card" style="width: 18rem;">
-    <div class="card-body" style="background-color: rgb(106, 106, 221);">
+    <div class="card-body" style="background-color: rgb(106, 221, 181);">
       <h5 class="card-title">Name: ${member.name}</h5>
       <h6 class="card-title"></h6>
       <i class="fas fa-mug-hot"> Manager</i>
@@ -70,7 +71,7 @@ const buildTeam = () => {
     } else {
       employee += `<div class="col-md-3">
 <div class="card" style="width: 18rem;">
-    <div class="card-body" style="background-color: rgb(106, 106, 221);">
+    <div class="card-body" style="background-color: rgb(233, 138, 54);">
       <h5 class="card-title">Name: ${member.name}</h5>
       <h6 class="card-title"></h6>
       <i class="fas fa-glasses"> Engineer</i>
@@ -181,7 +182,7 @@ const addManager = () => {
         type: "input",
         message: "What is this team member's working office number?",
         validate: async (input) => {
-          if (!input || isNaN(input) && !input === "-") {
+          if (!input || (isNaN(input) && !input === "-")) {
             return "You did not enter a valid number. Please be sure to add numeric values and (-) in between your working number.";
           }
           //If there is no value entered OR if the input is a not a number with -: return error
