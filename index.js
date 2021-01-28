@@ -2,12 +2,12 @@ const inquirer = require("inquirer");
 const fs = require("fs");
 const Intern = require("./lib/Intern");
 const Manager = require("./lib/Manager");
-const Engineer = require ("./lib/Engineer");
+const Engineer = require("./lib/Engineer");
 const Employee = require("./lib/Employee");
 
 const members = [];
 
-const buildTeam = ()=>{ 
+const buildTeam = () => {
   const head = `<!DOCTYPE html>
   <html lang="en">
   <head>
@@ -28,16 +28,16 @@ const buildTeam = ()=>{
             <h1 class="display-4">My Team</h1>
             <p class="lead"></p>
           </div>
-      </div>`
-      const footer = `</div> 
+      </div>`;
+  const footer = `</div> 
       </body>
-      </html>`
+      </html>`;
   //console.log(members)
-  let employee = ""
-  members.map(function(member){
-  if (member.getRole() === 'Intern'){
-    //console.log("hi!")
-    employee += `<div class="row">
+  let employee = "";
+  members.map(function (member) {
+    if (member.getRole() === "Intern") {
+      //console.log("hi!")
+      employee += `<div class="row">
     <div class="col-md-3">
         <div class="card" style="width: 18rem;">
             <div class="card-body" style="background-color: rgb(106, 106, 221);">
@@ -51,11 +51,9 @@ const buildTeam = ()=>{
             <li class="list-group-item school">School: ${member.school}</li>
             </ul>
         </div>
-    </div>`
-  }
-
-   else if(member.getRole() ==="Manager"){
-employee += `<div class="col-md-3">
+    </div>`;
+    } else if (member.getRole() === "Manager") {
+      employee += `<div class="col-md-3">
 <div class="card" style="width: 18rem;">
     <div class="card-body" style="background-color: rgb(106, 106, 221);">
       <h5 class="card-title">Name: ${member.name}</h5>
@@ -68,10 +66,9 @@ employee += `<div class="col-md-3">
       <li class="list-group-item officeNumber">Office Number: ${member.officeNumber}</li>
     </ul>
   </div>
- </div> `
-   
-} else {
-employee += `<div class="col-md-3">
+ </div> `;
+    } else {
+      employee += `<div class="col-md-3">
 <div class="card" style="width: 18rem;">
     <div class="card-body" style="background-color: rgb(106, 106, 221);">
       <h5 class="card-title">Name: ${member.name}</h5>
@@ -84,137 +81,151 @@ employee += `<div class="col-md-3">
       <li class="list-group-item gitHub">Github:<a href="https://github.com/${member.gitHub}"target="_blank">${member.gitHub}</a></li>
     </ul>
   </div>
-</div>`
-}
-   }
-  );
+</div>`;
+    }
+  });
   //console.log(employee)
   //console.log(head+employee+footer)
-  
+
   const fileName = "./dist/Team-Profile-Generator.html";
-  const appendHtml = (head+employee+footer);
-  
+  const appendHtml = head + employee + footer;
+
   fs.writeFile(fileName, appendHtml, (error) =>
-  error ? console.error(error) : console.log("Success!")
+    error ? console.error(error) : console.log("Success!")
   );
-}
+};
 
 generalQuestions = [
-  { 
-    name: 'name',
-    type: 'input',
+  {
+    name: "name",
+    type: "input",
     message: "Please enter team member's name (First, Last)?",
   },
   {
-    name: 'email',
-    type: 'input',
+    name: "email",
+    type: "input",
     message: "What is this team member's e-mail address?",
   },
   {
-    name: 'id',
-    type: 'input',
+    name: "id",
+    type: "input",
     message: "What is this team member's id number?",
   },
   {
-    name: 'manager',
-    type: 'input',
+    name: "managerName",
+    type: "input",
     message: "What is your team manager's name?",
   },
-]
+];
 
-  const askQuestion = () =>{
-        inquirer
-        .prompt([
-            {
-              name: "userChoice",
-              type: "list",
-              message: "What would you like to do?",
-              choices: ["Add Intern","Add Manager","Add Engineer", "Build team"],
-    
-            }
-        ])
-        .then(response => {
-            switch (response.userChoice){
-                case "Add Intern": 
-                addIntern();
-                break;
-                case "Add Manager": 
-                addManager();
-                break;
-                case "Add Engineer": 
-                addEngineer();
-                break;
-                default: 
-                buildTeam();
-            }
-            //console.log(response.userChoice)
-        })
-    }
-    
-//Intern Questions
-  const addIntern = ()=>{
-    inquirer
-  .prompt([
-    //General questions to be asked first before sub-questions
-    generalQuestions[0],
-    generalQuestions[1],
-    generalQuestions[2],
+const askQuestion = () => {
+  inquirer
+    .prompt([
       {
-        name: 'school',
-        type: 'input',
-        message: 'What school do you go to?',
+        name: "userChoice",
+        type: "list",
+        message: "What would you like to do?",
+        choices: ["Add Intern", "Add Manager", "Add Engineer", "Build team"],
       },
     ])
-    .then(response => {
-      const intern = new Intern(response.name, response.email, response.id, response.school)
-      members.push(intern)
-        //console.log(response) //Returns the responses of the question and all the properties
-        askQuestion();
-    }) 
-}
-//Manager Questions
-  const addManager = ()=>{
-    inquirer
-  .prompt([
-    generalQuestions[3],
-    generalQuestions[1],
-    generalQuestions[2],
+    .then((response) => {
+      switch (response.userChoice) {
+        case "Add Intern":
+          addIntern();
+          break;
+        case "Add Manager":
+          addManager();
+          break;
+        case "Add Engineer":
+          addEngineer();
+          break;
+        default:
+          buildTeam();
+      }
+      //console.log(response.userChoice)
+    });
+};
+
+//Intern Questions
+const addIntern = () => {
+  inquirer
+    .prompt([
+      //General questions to be asked first before sub-questions
+      generalQuestions[0],
+      generalQuestions[1],
+      generalQuestions[2],
       {
-        name: 'officeNumber',
-        type: 'input',
+        name: "school",
+        type: "input",
+        message: "What school do you go to?",
+      },
+    ])
+    .then((response) => {
+      const intern = new Intern(
+        response.name,
+        response.email,
+        response.id,
+        response.school
+      );
+      members.push(intern);
+      //console.log(response) //Returns the responses of the question and all the properties
+      askQuestion();
+    });
+};
+//Manager Questions
+const addManager = () => {
+  inquirer
+    .prompt([
+      generalQuestions[3],
+      generalQuestions[1],
+      generalQuestions[2],
+      {
+        name: "officeNumber",
+        type: "input",
         message: "What is this team member's working office number?",
         validate: async (input) => {
-          if (! input || isNaN(input)) {
-             return 'You did not input a valid number';
+          if (!input || isNaN(input) && !input === "-") {
+            return "You did not enter a valid number. Please be sure to add numeric values and (-) in between your working number.";
           }
+          //If there is no value entered OR if the input is a not a number with -: return error
           //! isNaN means it is a string (letters in a string).
           return true;
-        }
+        },
       },
     ])
-    .then(response => {
-      const manager = new Manager(response.name, response.email, response.id, response.officeNumber)
-      members.push(manager)
-        askQuestion();
-    }) 
-}
+    .then((response) => {
+      const manager = new Manager(
+        response.managerName,
+        response.email,
+        response.id,
+        response.officeNumber
+      );
+      members.push(manager);
+      askQuestion();
+    });
+};
 //Engineer Questions
-  const addEngineer = ()=>{
-    inquirer
-  .prompt([
-    generalQuestions[0],
-    generalQuestions[1],
-    generalQuestions[2],
+const addEngineer = () => {
+  inquirer
+    .prompt([
+      generalQuestions[0],
+      generalQuestions[1],
+      generalQuestions[2],
       {
-        name: 'gitHub',
-        type: 'input',
-        message: 'What is your github username?',
+        name: "gitHub",
+        type: "input",
+        message: "What is your github username?",
       },
     ])
-    .then(response => {
-      const engineer = new Engineer(response.name, response.email, response.id, response.gitHub)
-      members.push(engineer)
-        askQuestion();
-    })
-} 
+    .then((response) => {
+      const engineer = new Engineer(
+        response.name,
+        response.email,
+        response.id,
+        response.gitHub
+      );
+      members.push(engineer);
+      askQuestion();
+    });
+};
 addManager();
